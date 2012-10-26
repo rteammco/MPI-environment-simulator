@@ -69,24 +69,26 @@ void display_func(){
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glLoadIdentity();
 	
-	// set siize of each rendered point!
-	glPointSize(4.0); // how many pixels is each organism
+	// set size of each rendered point!
+	glPointSize(4.0);
 	
 	// DISPLAY ORGANISMS!
 	glBegin(GL_POINTS); // start creating POINT vertices
 	
-		// display plant data:
+		// display plants:
 		glColor3f(0.0, 1.0, 0.0); // green
 		int i;
 		for(i = 0; i<plant_loc_count; i++){
 			glVertex2f(plant_locs[i*2], plant_locs[i*2+1]);
 		}
 		
+		// display herbivores
 		glColor3f(0.0, 0.0, 1.0); // blue
 		for(i = 0; i<herbivore_loc_count; i++){
 			glVertex2f(herbivore_locs[i*2], herbivore_locs[i*2+1]);
 		}
 		
+		// display predators
 		glColor3f(1.0, 0.0, 0.0); // red
 		for(i = 0; i<predator_loc_count; i++){
 			glVertex2f(predator_locs[i*2], predator_locs[i*2+1]);
